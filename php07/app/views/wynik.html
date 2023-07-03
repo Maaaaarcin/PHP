@@ -1,0 +1,32 @@
+<table id="tab_people" class="pure-table pure-table-bordered">
+    <thead>
+        <tr>
+            <th>Paliwo</th>
+            <th>Cena</th>
+            <th>Kilometry</th>
+            <th>Result</th>
+            <th>Koszt</th>
+            {if inRole('admin')}
+                <th>Opcje</th>
+            {/if}
+        </tr>
+    </thead>
+    <tbody>
+    {foreach $records as $r}
+    {strip}
+        <tr>
+            <td>{$r["paliwo"]}</td>
+            <td>{$r["cena"]}</td>
+            <td>{$r["kilometry"]}</td>
+            <td>{$r["result"]}</td>
+            <td>{$r["koszt"]}</td>
+            {if inRole('admin')}
+            <td>
+                <a id="recordDelete" href="{$conf->action_url}wynikDelete&id={$r['id']}">Usuń</a>
+            </td>
+            {/if}
+        </tr>
+    {/strip}
+    {/foreach}
+    </tbody>
+ </table>

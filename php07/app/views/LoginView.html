@@ -1,0 +1,27 @@
+{extends file="main.html"}
+		
+{block name=content}
+
+<!-- Wrapper -->
+	<div id="wrapper">
+<!-- Contact -->
+		<h2 class="major">Logowanie</h2>
+		<form method="post" action="{$conf->action_url}login">
+			<div class="fields">
+				<div class="field">
+					<input type="text" name="login" autocomplete="off" placeholder="Login" value="{$form->login}"/>
+				</div>
+				<div class="field">
+					<input type="password" name="pass" autocomplete="off" placeholder="Hasło"/>
+				</div>
+				<div class="field">
+					<input type="submit" value="Zaloguj" class="primary" />
+				</div>
+			</div>
+		</form>
+		<div>
+			{include file='messages.html'}
+		</div>
+	</div>
+
+{/block}
