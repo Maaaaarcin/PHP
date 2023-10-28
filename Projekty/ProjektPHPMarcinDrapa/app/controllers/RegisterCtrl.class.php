@@ -89,6 +89,8 @@ class RegisterCtrl {
     }
 
     public function generateView() {
+        App::getSmarty()->assign("points", SessionUtils::load("points"));
+        App::getSmarty()->assign("user", SessionUtils::loadObject("user", true));
         App::getSmarty()->assign('form', $this->form); // dane formularza do widoku
         App::getSmarty()->display('register.tpl');
     }

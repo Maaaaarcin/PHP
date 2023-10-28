@@ -59,6 +59,7 @@ class LoginCtrl {
                 "pass" => $this->form->pass
             ]);
             if(!empty($this->account)){
+                RoleUtils::addRole($this->account["role"]);
                 $points = $this->account["points"];
                 $this->account = new User($this->account["user_id"], $this->account["login"], $this->account["role"], $this->account["points"]);
                 SessionUtils::storeObject("user", $this->account);
@@ -76,6 +77,7 @@ class LoginCtrl {
     public function action_rola() {
         $user = SessionUtils::loadObject("user", true);
         if(empty($user->role)) {
+            RoleUtils::addRole($this->ROLE);
             $user = new User(0, null, $this->ROLE, null);
             SessionUtils::storeObject("user", $user);
         }
