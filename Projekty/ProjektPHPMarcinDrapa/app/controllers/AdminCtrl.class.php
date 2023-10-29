@@ -15,6 +15,7 @@ class AdminCtrl {
     private $title;
     private $price;
     private $picture;
+    private $value;
 
     public function __construct() {
         //stworzenie potrzebnych obiektów
@@ -59,7 +60,19 @@ class AdminCtrl {
         App::getRouter()->redirectTo("index");
     }
 
+    public function value() {
+        $this->value = App::getDB()->select("users", [
+            "name",
+            "surname",
+            "email",
+            "login",            
+            "points"
+        ]);
+    }
+
     public function action_admin() {
+        $this->value();
+        App::getSmarty()->assign("value", $this->value);
         App::getSmarty()->assign("points", SessionUtils::load("points", true));
         App::getSmarty()->assign("user", SessionUtils::loadObject("user", true));
         App::getSmarty()->display('admin.tpl');

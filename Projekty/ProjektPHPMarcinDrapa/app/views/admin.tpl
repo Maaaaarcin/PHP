@@ -28,6 +28,28 @@
 				</div>
 			</form>
 		</div>
+		<table>
+			<thead>
+				<tr><strong>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Email</th>
+					<th>Login</th>
+					<th>Points</th>
+				</strong></tr>
+			</thead>
+			<tbody>
+			{foreach $value as $v}
+				<tr>
+					<td>{$v['name']}</td>
+					<td>{$v['surname']}</td>
+					<td>{$v['email']}</td>
+					<td>{$v['login']}</td>
+					<td>{$v['points']}</td>
+				</tr>
+			{/foreach}
+			</tbody>
+		</table>
 	</section>
 </article>
 {/block}

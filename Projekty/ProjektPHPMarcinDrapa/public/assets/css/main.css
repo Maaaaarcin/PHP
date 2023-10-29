@@ -2153,6 +2153,14 @@ input, select, textarea {
 
 /* Table */
 
+	th {
+		font-weight: bold;
+	}
+
+	section.wrapper table {
+		margin-top: 2em;
+	}
+
 	table {
 		width: 100%;
 	}
